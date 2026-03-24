@@ -1,4 +1,4 @@
-package mg.project.mini_projet;
+package mg.project.miniprojet;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MiniProjetApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MiniProjetApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(MiniProjetApplication.class, args);
+    }
 }

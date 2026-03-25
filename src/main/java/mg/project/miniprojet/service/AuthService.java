@@ -18,6 +18,9 @@ public class AuthService {
    @Autowired
    private UserRepository userRepository;
 
+   @Autowired
+    private JwtService jwtService;
+
 
    public User register(String email, String password) {
 
@@ -32,17 +35,18 @@ public class AuthService {
    }
 
 
-   public User login(String email, String password) {
+    public String login(String email, String password) {
 
 
-       Optional<User> user = userRepository.findByEmail(email);
+        Optional<User> user = userRepository.findByEmail(email);
 
 
-       if(user.isPresent() && user.get().getPassword().equals(password)) {
-           return user.get();
-       }
+        if(user.isPresent() && user.get().getPassword().equals(password)) {
+            return jwtService.generateToken(user.get().getEmail());
+        }
 
 
-       return null;
-   }
+        return null;
+    }
+
 }

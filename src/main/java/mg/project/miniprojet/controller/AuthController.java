@@ -30,17 +30,18 @@ public class AuthController {
 
 
    @PostMapping("/login")
-   public Object login(@RequestBody LoginDTO dto) {
+    public Object login(@RequestBody LoginDTO dto) {
 
 
-       User user = authService.login(dto.getEmail(), dto.getPassword());
+        String token = authService.login(dto.getEmail(), dto.getPassword());
 
 
-       if(user == null) {
-           return Map.of("message", "Invalid credentials");
-       }
+        if(token == null) {
+            return Map.of("message", "Invalid credentials");
+        }
 
 
-       return user;
-   }
+        return Map.of("token", token);
+    }
+
 }

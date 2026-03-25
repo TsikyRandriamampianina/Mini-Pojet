@@ -1,4 +1,4 @@
-package mg.project.mini_projet;
+package mg.project.miniprojet;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,7 @@
 package mg.project.miniprojet.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class Author {
    private String name;
 
 
+   @JsonIgnore
    @ManyToMany(mappedBy = "authors")
    private List<Book> books;
 

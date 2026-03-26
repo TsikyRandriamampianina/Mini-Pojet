@@ -16,7 +16,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 
 import mg.project.miniprojet.service.JwtService;
-
+import org.springframework.util.AntPathMatcher;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,6 +24,17 @@ import java.util.List;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
+    private static final List<String> PUBLIC_PATHS = List.of(
+        "/api/auth/**", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html", "/h2/**"
+    );
+    private final AntPathMatcher pathMatcher = new AntPathMatcher();
+
+    @Override
+    protected boolean shouldNotFilter(jakarta.servlet.http.HttpServletRequest request) {
+        String path = request.getServletPath();
+        return PUBLIC_PATHS.stream().anyMatch(p -> pathMatcher.match(p, path));
+    }
 
 
    @Autowired

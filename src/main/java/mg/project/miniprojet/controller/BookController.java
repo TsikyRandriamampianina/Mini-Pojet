@@ -29,4 +29,12 @@ public class BookController {
    public List<Book> getAll() {
        return service.findAll();
    }
+
+   @GetMapping("/top")
+    public List<Map<String, Object>> topBooks() {
+    return service.getTopBooks();
+    }
+
 }
+
+

@@ -8,7 +8,14 @@ import java.util.List;
 
 import mg.project.miniprojet.model.Book;
 import mg.project.miniprojet.repository.BookRepository;
+import mg.project.miniprojet.repository.BorrowRepository;
+import mg.project.miniprojet.model.Borrow;
+import java.util.stream.Collectors;
 
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Optional;
+import java.util.HashMap;
 
 @Service
 public class BookService {
@@ -66,5 +73,10 @@ public class BookService {
 
     return result;
     }
+
+    public Book findById(Long id) {
+        return repository.findById(id).orElseThrow();
+    }
+
 
 }

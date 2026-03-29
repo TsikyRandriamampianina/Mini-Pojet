@@ -1,0 +1,8 @@
+target/
+.git
+.gitignore
+.idea
+*.md
+*.iml
+MINI-PROJET-M2.postman_collection.json
+documentation_swagger.json
